@@ -1,0 +1,20 @@
+cmd_vel_publisher:
+  ros__parameters:
+    linear_x: 0.3
+    linear_y: 0.0
+    angular_z: 0.5
+    rate: 20.0
+    accel_limit: 1.0
+    duration: 0.0
+    verbose: true
+
+sub:
+  ros__parameters:
+    topic: "/cmd_vel"
+    out_topic: "/safe_cmd_vel"
+    timeout: 0.5
+    max_linear: 1.0
+    max_angular: 2.0
+    verbose: true
+    deadband: 0.0
+    publish_safe: true
