@@ -95,3 +95,14 @@
 # 运行
 ## 启动节点：ros2 launch my_cmd_vel_ros bringup.launch.py
 ## 测试发送指令：ros2 topic pub -r 10 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.3}}"
+# 验证系统功能：1.外部指令正常转发功能：# 向原始话题发送线速度 0.3m/s
+##             ros2 topic pub -r 10 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.3}}"   
+##             ros2 topic echo /safe_cmd_vel
+##             ros2 topic echo /system_status
+#             2.看门狗验证： 在上一步之后按下ctrl+c ;
+#             3外部系统恢复后，看门狗停止：ros2 topic pub -r 10 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.3}}"
+#             4可视化验证节点连接关系：rqt_graph
+#              5查看话题频率：ros2 topic hz /safe_cmd_vel
+
+
+## AI使用情况：1.两个发布点，两个订阅点，是由AI写的，使用AI生成了CMAKE包和xml.包 launch配置文件也是AI写的然后编译和运行的一些命令和上传Git的命令询问了AI，向AI询问了录屏和rosbag的用法，然后在AI写完代码后，逐行的看了代码，大致了解每这些代码是为了干什么，但是一些C++的写法不太了解，询问AI，然后自行创作README时都是自己写的，除了编译运行的指令和检查系统功能的指令
